@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1> QUORA POSTS</h1>
+    <% for(post of posts ){ %>
+        <div class="posts">
+            <h3 class="user">@ <%= post.username %> </h3>
+            <h4 class="content"> <%= post.content %></h4>
+       <br>
+       
+       <a href="/posts/<%=post.id%>">See in detail</a> <br>
+        <a href="/posts/<%=post.id%>/edit">Edit</a>
+            <!-- <br> -->
+
+
+       <form method="post" action="/posts/<%=post.id%>?_method=DELETE">
+        <!-- //we r keeping delete btn in form to link it tto new route -->
+        <button>Delete POST</button>
+
+       </form>
+
+    </div>
+        <% } %>
+        <br><br>
+        <a href="/posts/new">Create A New post</a>
+  <br>
+
+        <!-- <a href="http://localhost:8088/posts/new">Create A New post</a> -->
+    </body>
+</html>
